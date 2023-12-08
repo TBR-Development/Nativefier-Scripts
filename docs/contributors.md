@@ -1,7 +1,7 @@
 ---
 title: Contributors
 layout: page
-permalink: /
+permalink: /contributors
 nav_order: 3
 ---
 
