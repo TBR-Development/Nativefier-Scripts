@@ -5,8 +5,7 @@ A collection of native app scripts for use with nativefier
 
 | Author | Script(s) |
 | --- | --- |
-| [PhantomNimbi][PhantomNimbi] | Netflix | 
-
+| [PhantomNimbi][PhantomNimbi] | `netflix-win32-x64`, `hulu-win32-x64` |
 ## License
 This repository is protected under the MIT License. More information [here][LICENSE].
 
