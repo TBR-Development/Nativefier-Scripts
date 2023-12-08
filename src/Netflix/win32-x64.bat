@@ -1,29 +1,28 @@
 @echo off
-setlocal EnableExtensions DisableDelayedExpansion 
 
+setlocal EnableExtensions DisableDelayedExpansion 
 set "FullVersion=%~1" 
 
-if not defined FullVersion set "FullVersion=1.0.0.0"
-
+if not defined FullVersion set "FullVersion=1.0.0.0" 
 set "MajorVersion=" 
 set "MinorVersion=" 
 set "Maintenance=" 
 set "BuildNumber="
 
 for /F "tokens=1-4 delims=." %%I in ("%FullVersion%") do ( 
-if not "%%L" == "" ( 
-    set "MajorVersion=%%I." 
-    set "MinorVersion=%%J." 
-    set "Maintenance=%%K." 
-    set "BuildNumber=%%L"
-) else if not "%%K" == "" ( 
-    set "MajorVersion=%%I." 
-    set "MinorVersion=%%J." 
-    set "BuildNumber=%%K"
-) else if not "%%J" == "" ( 
-    set "MajorVersion=%%I." 
-    set "BuildNumber=%%J"
-) else set "BuildNumber=%%I" )
+    if not "%%L" == "" ( 
+        set "MajorVersion=%%I." 
+        set "MinorVersion=%%J." 
+        set "Maintenance=%%K." 
+        set "BuildNumber=%%L"
+    ) else if not "%%K" == "" ( 
+        set "MajorVersion=%%I." 
+        set "MinorVersion=%%J." 
+        set "BuildNumber=%%K"
+    ) else if not "%%J" == "" ( 
+        set "MajorVersion=%%I." 
+        set "BuildNumber=%%J"
+    ) else set "BuildNumber=%%I" )
 
 if defined BuildNumber for /F "tokens=* delims=0" %%I in ("%BuildNumber%") do set "BuildNumber=%%I" 
 
@@ -43,42 +42,38 @@ set CurNN=%time:~3,2%
 set CurSS=%time:~6,2%
 set CurMS=%time:~9,2%
 set DateTime= %CurYYYY%%CurMM%%CurDD%-%CurHH%%CurNN%%CurSS%
-set AppTitle = "netflix"
-set AppName = "https://www.netflix.com/"
-set AppIcon = "./icon.ico"
+
+set AppTitle = Netflix
+set AppName = netflix
+set AppUrl = https://www.netflix.com/
+set AppIcon = ./icon.ico
 set ElectronVersion = 
-set InternalUrls = "(*.?)(*.netflix.*)(*.?)"
-set FileDownloadOptions = "{\"saveAs\": true}"
+set InternalUrls = (*.?)(*.netflix.*)(*.?)
+set FileDownloadOptions = {\"saveAs\": true}
 set BuildPath = ../out/%AppName%/
 set LogPath = ../logs/%AppTitle%-%DateTime%.log
 
-echo "Compiling the requested %APP_NAME% app ..."
-echo "Please be patient ..."
-
+echo "Compiling the requested %APP_NAME% app ... Please be patient ..."
 wait .5
-
 echo.
 echo "================================"
-echo "App Name: %APP_NAME%"
-echo "Build Path: %BUILD_PATH%"
-echo "Log File: %LOG_PATH%"
-echo "Version: %FullVersion%"
+echo App Name: %AppName%
+echo Build Path: %BuildPath%
+echo Log File: %LogPath%
+echo Version: %FullVersion%
 echo "================================"
 echo.
-
+wait .5
+mkdir ../logs/ >1&2 "%LogPath%" && mkdir ../out/ >1&2 "%LogPath%"
 wait .5
 
-mkdir ../logs/ && mkdir ../out/
-
-wait .5
-
-nativefier -e %ELECTRON_VERSION% -v %APP_TITLE% %APP_URL% \
+nativefier -e %ElectronVersion% -v "%AppTitle"% "%AppUrl%" \
   --tray \
   --enable-es3-apis \
-  --icon %APP_ICON% \
-  --internal-urls %INTERNAL_URLS% \
-  --app-verosion %FullVersion% \
-  --file-download-options %FILE_DOWNLOAD_OPTIONS% \
-  %BUILD_PATH% > %LOG_PATH%
+  --icon "%AppIcon%" \
+  --internal-urls "%InternalUrls%" \
+  --app-verosion "%FullVersion%" \
+  --file-download-options "%FileDownloadOptions%" \
+  "%BUILD_PATH%" >1&2 "%LogPath%"
 endlocal
 pause > Press any key to exit ...
