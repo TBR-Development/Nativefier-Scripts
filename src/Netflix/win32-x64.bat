@@ -39,15 +39,22 @@ set CurDD=%date:~7,2%
 
 if %CurHH% lss 10 ( set CurHH=0%time:~1,1% )
 
-set AppName = Netflix
-set AppTitle = netflix
-set AppUrl = https://www.netflix.com/
-set InternalUrls = (*.?)(*.netflix.*)(*.?)
 set FileDownloadOptions = {\"saveAs\": true}
 set BuildPath = ../out
 set LogPath = ../logs
 set LogDate = %CurYYYY%%CurMM%%CurDD%
 set LogFile = %AppTitle%%LogDate%.log
+
+wait 1
+mkdir %LogPath%
+mkdir %BuildPath%
+wait 1
+
+set AppName = Netflix
+set AppTitle = netflix
+set AppUrl = https://www.netflix.com/
+set InternalUrls = (*.?)(*.netflix.*)(*.?)
+
 echo "======================================"
 echo " - Compiling the requested app ...    "
 echo " - Please be patient ...              "
@@ -57,9 +64,6 @@ echo " - Build Path: %BuildPath%            "
 echo " - Log Path: %LogPath%                "
 echo " - Build Version: %FullVersion%       "
 echo "======================================"
-wait 1
-mkdir %LogPath% && mkdir %BuildPath%
-wait 1
 nativefier -v -n "%AppTitle%" "%AppUrl%" --tray --enable-es3-apis --file-download-options "%FileDownloadOptions%" --internal-urls "%InternalUrls%" "%BuildPath%/%AppName%" > "%LogPath%/%LogFile%"
 endlocal
 pause > Press any key to exit ...
