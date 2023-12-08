@@ -43,13 +43,14 @@ if %CurHH% lss 10 ( CurHH=0%time:~1,1% )
 set FileDownloadOptions = {\"saveAs\": true}
 set BuildPath = ../out
 set LogPath = ../logs
+set ElectronVersion = ${npm show electron version}
 set LogDate = %CurYYYY%%CurMM%%CurDD%
 set LogFile = %AppTitle%%LogDate%.log
 wait 1
 mkdir %LogPath% && mkdir %BuildPath%
 wait 1
-set AppName = YouTube
-set AppTitle = youtube
+set AppName = YouTube 
+set AppTitle = youtube 
 set AppUrl = https://www.youtube.com/
 set InternalUrls = (.*?)(*.youtube.*|*.google.*|youtu.be)(.*?)
 echo "======================================"
@@ -62,6 +63,6 @@ echo " - Log Path: %LogPath%                "
 echo " - Build Version: %FullVersion%       "
 echo "======================================"
 wait 1
-nativefier -v -n "%AppTitle%" "%AppUrl%" --tray --enable-es3-apis --file-download-options "%FileDownloadOptions%" --internal-urls "%InternalUrls%" "%BuildPath%/%AppName%" > "%LogPath%/%LogFile%"
+nativefier -v -n -e %ElectronVersion% "%AppTitle%" "%AppUrl%" --tray --bounce --enable-es3-apis --file-download-options "%FileDownloadOptions%" --internal-urls "%InternalUrls%" "%BuildPath%/%AppName%" > "%LogPath%/%LogFile%"
 endlocal
 pause > Press any key to exit ...
