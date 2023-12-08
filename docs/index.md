@@ -11,12 +11,12 @@ nav_order: 1
     $(function() {
 
 
-   var people = []; 
+   var credits = []; 
 
    $.getJSON('credits.json', function(data) {
        $.each(data.credits, function(i, f) {
-          var tblRow = "<tr>" + "<td>" + f.contributors + "</td>" +
-           "<td>" + f.contributions + "</td>" + "<td>" + f.platforms + "</td>"  + "</tr>"
+          var tblRow = "<tr>" + "<td>" + f.Contributors + "</td>" +
+           "<td>" + f.Contributions + "</td>" + "<td>" + f.Platforms + "</td>"  + "</tr>"
            $(tblRow).appendTo("#userdata tbody");
      }); 
 
