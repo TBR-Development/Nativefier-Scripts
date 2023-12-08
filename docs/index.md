@@ -11,7 +11,6 @@ A collection of native app scripts for use with nativefier
 
  - First, download and install the latest versions of NodeJS and Python.
  - Next, open your terminal and run the following commands:
- - 
 ```sh
 npm install -g nativefier
 python3 -m pip install --upgrade castlabs-evs
