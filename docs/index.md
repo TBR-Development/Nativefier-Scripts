@@ -1,4 +1,9 @@
-<html>
+---
+title: Home
+layout: home
+permalink: /
+nav_order: 1
+---
 <head>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script> 
 <script> 
@@ -35,4 +40,3 @@
 </div>
 </div> 
 </body>
-</html>
