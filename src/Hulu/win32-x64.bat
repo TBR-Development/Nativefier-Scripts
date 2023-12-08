@@ -45,7 +45,6 @@ set LogPath = ../logs
 set LogDate = %CurYYYY%%CurMM%%CurDD%
 set LogFile = %AppTitle%%LogDate%.log
 
-wait 1
 mkdir %LogPath%
 mkdir %BuildPath%
 wait 1
@@ -64,6 +63,7 @@ echo " - Build Path: %BuildPath%            "
 echo " - Log Path: %LogPath%                "
 echo " - Build Version: %FullVersion%       "
 echo "======================================"
+wait 1
 nativefier -v -n "%AppTitle%" "%AppUrl%" --tray --enable-es3-apis --file-download-options "%FileDownloadOptions%" --internal-urls "%InternalUrls%" "%BuildPath%/%AppName%" > "%LogPath%/%LogFile%"
 endlocal
 pause > Press any key to exit ...
