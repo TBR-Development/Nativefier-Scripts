@@ -52,6 +52,7 @@ set AppName = Hulu
 set AppTitle = hulu
 set AppUrl = https://www.hulu.com/
 set InternalUrls = (.*?)(*.hulu.*)(.*?)
+echo "======================================"
 echo " - Compiling the requested app ...    "
 echo " - Please be patient ...              "
 echo "======================================"
