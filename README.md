@@ -3,7 +3,7 @@ A collection of native app scripts for use with nativefier
 
 ### Credits
 
-| Contributions | Contributor |
+| Contributions | Contributors |
 | --- | --- |
 | Netflix, Hulu, YouTube | [PhantomNimbi][PhantomNimbi] |
 
