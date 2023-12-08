@@ -45,8 +45,9 @@ set BuildPath = ../out
 set LogPath = ../logs
 set LogDate = %CurYYYY%%CurMM%%CurDD%
 set LogFile = %AppTitle%%LogDate%.log
+wait .5
 mkdir %LogPath% && mkdir %BuildPath%
-wait 1
+wait .5
 set AppName = YouTube
 set AppTitle = youtube
 set AppUrl = https://www.youtube.com/
