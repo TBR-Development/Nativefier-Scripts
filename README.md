@@ -7,7 +7,7 @@ If you wish to contribute, simply fork this repo and make a PR with your script(
 
 We have some example scripts in the [examples][EXAMPLES] directory for those who want to use our format.
 
-**Contributers**: [Link][CONTRIBUTORS]
+**Contributors**: [Link][CONTRIBUTORS]
 ### License
 This repository is protected under the MIT License. More information [here][LICENSE].
 
