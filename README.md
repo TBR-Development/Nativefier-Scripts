@@ -5,7 +5,7 @@ A collection of native app scripts for use with nativefier
 
 | Name | Contribution |
 | --- | --- |
-| PhantomNimbi | Netflix, Hulu |
+| PhantomNimbi | Netflix, Hulu, YouTube |
 
 ### License
 This repository is protected under the MIT License. More information [here][LICENSE].
