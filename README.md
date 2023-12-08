@@ -3,16 +3,16 @@ A collection of native app scripts for use with nativefier
 
 ### Contributor Guidelines
 
-If you wish to contribute, simply fork this repo and make a PR with your script(s). Make sure to use put your scripts in their own subfolder inside the [src][src] directory.
+If you wish to contribute, simply fork this repo and make a PR with your script(s). Make sure to use put your scripts in their own subfolder inside the [src][SRC] directory.
 
-We have some example scripts in the [examples][examples] directory for those who want to use our format.
+We have some example scripts in the [examples][EXAMPLES] directory for those who want to use our format.
 
-**Credits**: [Link][credits]
+**Contributers**: [Link][CONTRIBUTORS]
 ### License
 This repository is protected under the MIT License. More information [here][LICENSE].
 
 
 [LICENSE]: ./LICENSE
-[credits]: https://tbr-development.github.io/Nativefier-Scripts
-[examples]: ./examples
-[src]: ./src
+[CONTRIBUTORS]: https://tbr-development.github.io/Nativefier-Scripts
+[EXAMPLES]: ./examples
+[SRC]: ./src
