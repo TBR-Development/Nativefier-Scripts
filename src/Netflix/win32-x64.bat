@@ -18,8 +18,6 @@ set "BuildNumber=000%BuildNumber%"
 set "BuildNumber=%BuildNumber:~-4%" 
 set "FullVersion=%MajorVersion%%MinorVersion%%Maintenance%%BuildNumber%" 
 
-echo Incremented version is: %FullVersion% 
-
 set CurYYYY=%date:~10,4%
 set CurMM=%date:~4,2%
 set CurDD=%date:~7,2%
