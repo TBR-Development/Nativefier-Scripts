@@ -1,0 +1,32 @@
+title                          : Nativefier Scripts 
+description                    : > 
+   A collection of native app scripts for use with nativefier 
+repository                     : tbr-development/Nativefier-Scripts
+baseUrl                        : "/Nativefier-Scripts"
+url                            : "//tbr-development.github.io"
+show_excerpts                  : false
+permalink                      : pretty
+remote_theme                   : just-the-docs/just-the-docs
+color_scheme                   : "dark"
+search_enabled                 : true
+enable_copy_code_buttonn       : true
+last_edit_timestamp            : true
+last_edit_time_format          : "%b %e %Y at %I:%M %p" 
+gh_edit_link                   : true
+gh_edit_link_text              : "Edit this page on GitHub." 
+gh_edit_repository             : "//github.com/tbr-development/Nativefier-Scripts" 
+gh_edit_branch                 : "main" 
+gh_edit_source                 : docs
+gh_edit_view_mode              : "tree"
+back_to_top                    : true
+back_to_top_text               : "Back to top"  
+header_pages                   :
+  - index.html
+  - 404.html
+plugins                        :
+  - jekyll-seo-tag
+  - jekyll-github-metadata
+kramdown                       :
+  syntax_highlighter_opts      :
+    block                      :
+      line_numbers             : false
