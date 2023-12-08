@@ -52,6 +52,7 @@ set AppName = Hulu
 set AppTitle = hulu
 set AppUrl = https://www.hulu.com/
 set InternalUrls = (.*?)(*.hulu.*)(.*?)
+echo "======================================"
 echo " - Compiling the requested app ...    "
 echo " - Please be patient ...              "
 echo "======================================"
@@ -74,4 +75,3 @@ echo "======================================"
 python -m castlabs_evs.vmp sign-pkg "%BuildPath%/%AppTitle%-win32-x64/" > 1&2 "%LogPath%/%LogFile%"
 endlocal
 pause > Press any key to exit ...
-
