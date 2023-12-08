@@ -53,7 +53,7 @@ echo " - Please be patient ...              "
 echo "======================================"
 echo " - App Name: %AppName%                "
 echo " - Build Path: %BuildPath%            "
-echo " - Log File: %LogPath%                "
+echo " - Log Path: %LogPath%                "
 echo " - Build Version: %FullVersion%       "
 echo "======================================"
 wait 1
