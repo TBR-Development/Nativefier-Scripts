@@ -61,7 +61,17 @@ echo " - Build Path: %BuildPath%            "
 echo " - Log Path: %LogPath%                "
 echo " - Build Version: %FullVersion%       "
 echo "======================================"
-wait 1
-nativefier -v -n "%AppTitle%" "%AppUrl%" --tray --enable-es3-apis --file-download-options "%FileDownloadOptions%" --internal-urls "%InternalUrls%" "%BuildPath%/%AppName%" > "%LogPath%/%LogFile%"
+nativefier -v -n "%AppTitle%" "%AppUrl%" --tray --enable-es3-apis --widevine --file-download-options "%FileDownloadOptions%" --internal-urls "%InternalUrls%" "%BuildPath%" > "%LogPath%/%LogFile%"
+wait 5
+echo "======================================"
+echo " - Signing the requested app ...    "
+echo " - Please be patient ...              "
+echo "======================================"
+echo " - App Name: %AppName%                "
+echo " - Build Path: %BuildPath%            "
+echo " - Log Path: %LogPath%                "
+echo " - Build Version: %FullVersion%       "
+echo "======================================"
+python -m castlabs_evs.vmp sign-pkg "%BuildPath%/%AppTitle%-win32-x64/" > 1&2 "%LogPath%/%LogFile%"
 endlocal
 pause > Press any key to exit ...
