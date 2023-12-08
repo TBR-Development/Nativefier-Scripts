@@ -19,10 +19,7 @@ gh_edit_branch                 : "main"
 gh_edit_source                 : docs
 gh_edit_view_mode              : "tree"
 back_to_top                    : true
-back_to_top_text               : "Back to top"  
-header_pages                   :
-  - index.md
-  - 404.md
+back_to_top_text               : "Back to top"
 plugins                        :
   - jekyll-seo-tag
   - jekyll-github-metadata
