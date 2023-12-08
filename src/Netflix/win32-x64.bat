@@ -1,64 +1,50 @@
 @echo off
-
 setlocal EnableExtensions DisableDelayedExpansion 
+
 set "FullVersion=%~1" 
+
 if not defined FullVersion set "FullVersion=1.0.0.0"
 
-rem Make sure that the environment variables used below are
-rem not defined already by chance outside the batch file. 
 set "MajorVersion=" 
 set "MinorVersion=" 
 set "Maintenance=" 
 set "BuildNumber="
 
-rem Split up the version string into four integer values. 
 for /F "tokens=1-4 delims=." %%I in ("%FullVersion%") do ( if not "%%L" == "" ( set "MajorVersion=%%I." set "MinorVersion=%%J." set "Maintenance=%%K." set "BuildNumber=%%L" ) else if not "%%K" == "" ( set "MajorVersion=%%I." set "MinorVersion=%%J." set "BuildNumber=%%K" ) else if not "%%J" == "" ( set "MajorVersion=%%I." set "BuildNumber=%%J" ) else set "BuildNumber=%%I" )
-
-rem Remove leading zeros from build number to get the build number always rem interpreted as decimal number and never as valid or invalid octal number. 
 if defined BuildNumber for /F "tokens=* delims=0" %%I in ("%BuildNumber%") do set "BuildNumber=%%I" 
 
-rem It is possible that the build number is not defined anymore because of rem having value 0. But that is no problem on using the arithmetic expression rem below which uses value 0 for not defined environment variable BuildNumber 
-rem and so BuildNumber has the correct value 1 after the next command line. 
 set /A BuildNumber+=1 
-
-rem The command lines below can be enabled by removing REM to define rem the build number with a fixed number of digits like four digits. 
-REM set "BuildNumber=000%BuildNumber%" 
-REM set "BuildNumber=%BuildNumber:~-4%" 
-
-rem Concatenate the version string together with incremented build number. 
+set "BuildNumber=000%BuildNumber%" 
+set "BuildNumber=%BuildNumber:~-4%" 
 set "FullVersion=%MajorVersion%%MinorVersion%%Maintenance%%BuildNumber%" 
+
 echo Incremented version is: %FullVersion% 
 
+set CurYYYY=%date:~10,4%
+set CurMM=%date:~4,2%
+set CurDD=%date:~7,2%
+set CurHH=%time:~0,2%
 
-rem Get the time and date for use with the log file
-set CUR_YYYY=%date:~10,4%
-set CUR_MM=%date:~4,2%
-set CUR_DD=%date:~7,2%
-set CUR_HH=%time:~0,2%
+if %CurHH% lss 10 (set CurHH=0%time:~1,1%)
 
-if %CUR_HH% lss 10 (set CUR_HH=0%time:~1,1%)
-
-set CUR_NN=%time:~3,2%
-set CUR_SS=%time:~6,2%
-set CUR_MS=%time:~9,2%
-set DATE_TIME = %CUR_YYYY%%CUR_MM%%CUR_DD%-%CUR_HH%%CUR_NN%%CUR_SS%
-
-rem Set the variables for compiling your app below
-set APP_TITLE = "netflix"
-set APP_URL = "https://www.netflix.com/"
-set APP_ICON = "./icon.ico"
-set ELECTRON_VERSION = 
-set INTERNAL_URLS = "(*.?)(*.netflix.*)(*.?)"
-set FILE_DDOWNLOAD_OPTIONS = "{\"saveAs\": true}"
-
-rem Set the build path and log path
-set BUILD_PATH = ../out/%APP_NAME%/
-set LOG_PATH = ../logs/%APP_TITLE%-%DATE_TIME%.log
+set CurNN=%time:~3,2%
+set CurSS=%time:~6,2%
+set CurMS=%time:~9,2%
+set DateTime= %CurYYYY%%CurMM%%CurDD%-%CurHH%%CurNN%%CurSS%
+set AppTitle = "netflix"
+set AppName = "https://www.netflix.com/"
+set AppIcon = "./icon.ico"
+set ElectronVersion = 
+set InternalUrls = "(*.?)(*.netflix.*)(*.?)"
+set FileDownloadOptions = "{\"saveAs\": true}"
+set BuildPath = ../out/%AppName%/
+set LogPath = ../logs/%AppTitle%-%DateTime%.log
 
 echo "Compiling the requested %APP_NAME% app ..."
 echo "Please be patient ..."
-rem Wait before moving forward 
-wait 1
+
+wait .5
+
 echo.
 echo "================================"
 echo "App Name: %APP_NAME%"
@@ -67,13 +53,13 @@ echo "Log File: %LOG_PATH%"
 echo "Version: %FullVersion%"
 echo "================================"
 echo.
-rem Wait before moving forward 
-wait 1
-rem Create the out and logs directories 
+
+wait .5
+
 mkdir ../logs/ && mkdir ../out/
-rem Wait before moving forward 
-wait 1
-rem Compile the native app with nativefier 
+
+wait .5
+
 nativefier -e %ELECTRON_VERSION% -v %APP_TITLE% %APP_URL% \
   --tray \
   --enable-es3-apis \
