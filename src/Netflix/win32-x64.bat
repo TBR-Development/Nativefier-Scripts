@@ -28,15 +28,7 @@ REM set "BuildNumber=%BuildNumber:~-4%"
 rem Concatenate the version string together with incremented build number. 
 set "FullVersion=%MajorVersion%%MinorVersion%%Maintenance%%BuildNumber%" 
 echo Incremented version is: %FullVersion% 
-endlocal
 
-rem Set the variables for compiling your app below
-set APP_TITLE = "netflix"
-set APP_URL = "https://www.netflix.com/"
-set APP_ICON = "./icon.ico"
-set ELECTRON_VERSION = 
-set INTERNAL_URLS = "(*.?)(*.netflix.*)(*.?)"
-set FILE_DDOWNLOAD_OPTIONS = "{\"saveAs\": true}"
 
 rem Get the time and date for use with the log file
 set CUR_YYYY=%date:~10,4%
@@ -50,6 +42,14 @@ set CUR_NN=%time:~3,2%
 set CUR_SS=%time:~6,2%
 set CUR_MS=%time:~9,2%
 set DATE_TIME = %CUR_YYYY%%CUR_MM%%CUR_DD%-%CUR_HH%%CUR_NN%%CUR_SS%
+
+rem Set the variables for compiling your app below
+set APP_TITLE = "netflix"
+set APP_URL = "https://www.netflix.com/"
+set APP_ICON = "./icon.ico"
+set ELECTRON_VERSION = 
+set INTERNAL_URLS = "(*.?)(*.netflix.*)(*.?)"
+set FILE_DDOWNLOAD_OPTIONS = "{\"saveAs\": true}"
 
 rem Set the build path and log path
 set BUILD_PATH = ../out/%APP_NAME%/
