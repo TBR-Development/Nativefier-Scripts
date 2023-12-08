@@ -13,6 +13,6 @@ This repository is protected under the MIT License. More information [here][LICE
 
 
 [LICENSE]: ./LICENSE
-[CONTRIBUTORS]: https://tbr-development.github.io/Nativefier-Scripts
+[CONTRIBUTORS]: https://tbr-development.github.io/Nativefier-Scripts/contributors
 [EXAMPLES]: ./examples
 [SRC]: ./src
