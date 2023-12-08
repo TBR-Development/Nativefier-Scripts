@@ -43,11 +43,10 @@ set AppName = netflix
 set AppUrl = https://www.netflix.com/
 set InternalUrls = (*.?)(*.netflix.*)(*.?)
 set FileDownloadOptions = {\"saveAs\": true}
-
-set BuildPath = ../out/%AppName%/
+set BuildPath = ../out
 set LogDate = %CurYYYY%%CurMM%%CurDD%
-set LogPath = ../logs/%AppTitle%%LogDate%.log
-
+set LogPath = ../logs
+set LogFile = %AppTitle%%LogDate%.log
 echo "======================================"
 echo " - Compiling the requested app ...    "
 echo " - Please be patient ...              "
@@ -57,15 +56,9 @@ echo " - Build Path: %BuildPath%            "
 echo " - Log File: %LogPath%                "
 echo " - Build Version: %FullVersion%       "
 echo "======================================"
-wait .5
-mkdir ../logs/ >1&2 "%LogPath%"
-mkdir ../out/ >1&2 "%LogPath%"
-nativefier -e %ElectronVersion% -v "%AppTitle"% "%AppUrl%" \
-  --tray \
-  --enable-es3-apis \
-  --internal-urls "%InternalUrls%" \
-  --app-version "%FullVersion%" \
-  --file-download-options "%FileDownloadOptions%" \
-  "%BUILD_PATH%" >1&2 "%LogPath%"
+wait 1
+mkdir %LogPath% && mkdir %BuildPath%
+wait 1
+nativefier --verbose "%AppTitle%" "%AppUrl%" --tray --enable-es3-apis --internal-urls "%InternalUrls%" --build-version "%FullVersion%" --file-download-options "%FileDownloadOptions%" "%BuildPath%/%AppName%" > "%LogPath%/%LogFile%"
 endlocal
 pause > Press any key to exit ...
