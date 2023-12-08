@@ -10,18 +10,18 @@ set "MinorVersion="
 set "Maintenance=" 
 set "BuildNumber="
 
-for /F "tokens=1-4 delims=." %%I in ("%FullVersion%") do 
-( if not "%%L" == "" 
-  ( set "MajorVersion=%%I." 
+for /F "tokens=1-4 delims=." %%I in ("%FullVersion%") do ( 
+if not "%%L" == "" ( 
+    set "MajorVersion=%%I." 
     set "MinorVersion=%%J." 
     set "Maintenance=%%K." 
     set "BuildNumber=%%L" ) 
-    else if not "%%K" == "" 
-    ( set "MajorVersion=%%I." 
+    else if not "%%K" == "" ( 
+      set "MajorVersion=%%I." 
       set "MinorVersion=%%J." 
       set "BuildNumber=%%K" ) 
-      else if not "%%J" == "" 
-      ( set "MajorVersion=%%I." 
+      else if not "%%J" == "" ( 
+        set "MajorVersion=%%I." 
         set "BuildNumber=%%J" ) 
         else set "BuildNumber=%%I" )
 
