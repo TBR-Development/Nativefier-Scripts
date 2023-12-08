@@ -3,7 +3,8 @@
 setlocal EnableExtensions DisableDelayedExpansion 
 set "FullVersion=%~1" 
 
-if not defined FullVersion set "FullVersion=1.0.0.0" 
+if not defined FullVersion set "FullVersion=1.0.0.0"
+
 set "MajorVersion=" 
 set "MinorVersion=" 
 set "Maintenance=" 
@@ -38,12 +39,12 @@ set CurDD=%date:~7,2%
 
 if %CurHH% lss 10 (set CurHH=0%time:~1,1%)
 
-set AppTitle = Netflix
-set AppName = netflix
-set AppUrl = https://www.netflix.com/
+set AppName = Netflix
+set AppTitle = "netflix"
+set AppUrl = "https://www.netflix.com/"
 set InternalUrls = (*.?)(*.netflix.*)(*.?)
 set FileDownloadOptions = {\"saveAs\": true}
-set BuildOptions = --tray --enable-es3-apis --file-download-options %FileDownloadOptions% --internal-urls %InternalUrls% --verbose
+set BuildOptions = --tray --enable-es3-apis --file-download-options %FileDownloadOptions% --internal-urls %InternalUrls%
 set BuildPath = ../out
 set LogPath = ../logs
 set LogDate = %CurYYYY%%CurMM%%CurDD%
@@ -60,6 +61,6 @@ echo "======================================"
 wait 1
 mkdir %LogPath% && mkdir %BuildPath%
 wait 1
-nativefier "%AppTitle%" "%AppUrl%" %BuildOptions% "%BuildPath%/%AppName%" > "%LogPath%/%LogFile%"
+nativefier -v -n %AppTitle% %AppUrl% %BuildOptions% "%BuildPath%/%AppName%" > "%LogPath%/%LogFile%"
 endlocal
 pause > Press any key to exit ...
