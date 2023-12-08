@@ -7,17 +7,12 @@ If you wish to contribute, simply fork this repo and make a PR with your script(
 
 We have some example scripts in the [examples][examples] directory for those who want to use our format.
 
-### Credits
-
-| Contributions | Contributors |
-| --- | --- |
-| Netflix, Hulu, YouTube | [PhantomNimbi][PhantomNimbi] |
-
+**Creadits**: [Link][credits]
 ### License
 This repository is protected under the MIT License. More information [here][LICENSE].
 
 
 [LICENSE]: ./LICENSE
-[PhantomNimbi]: https://github.com/PhantomNimbi
+[credits]: https://tbr-development.github.io/Nativefier-Scripts
 [examples]: ./examples
 [src]: ./src
