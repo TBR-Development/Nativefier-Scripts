@@ -12,7 +12,7 @@
        $.each(data.credits, function(i, f) {
           var tblRow = "<tr>" + "<td>" + f.Contributors + "</td>" +
            "<td>" + f.Contributions + "</td>" + "<td>" + f.Platforms + "</td>"  + "</tr>"
-           $(tblRow).appendTo("#userdata tbody");
+           $(tblRow).appendTo("#data tbody");
      }); 
 
    }); 
@@ -23,16 +23,16 @@
 <body> 
 <div class="wrapper">
 <div class="profile">
-  <table id= "userdata" border="2">
+  <table id= "data" border="1">
     <thead>
-      <th>Contributors</th>
-      <th>Contributions</th>
-      <th>Platforms</th>
+      <th> Contributors </th>
+      <th> Contributions </th>
+      <th> Platforms </th>
     </thead>
     <tbody> 
       <th>PhantomNimbi</th>
-      <th>Netflix, Hulu, YouTube</th>
-      <th>Windows, Linux, Mac</th>
+      <th> Netflix, Hulu, YouTube </th>
+      <th> Windows, Linux, Mac </th>
     </tbody>
   </table> 
 </div>
