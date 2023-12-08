@@ -51,6 +51,7 @@ wait 1
 set AppName = YouTube 
 set AppTitle = youtube 
 set AppUrl = https://www.youtube.com/
+set UserAgent = firefox
 set InternalUrls = (.*?)(*.youtube.*|*.google.*|youtu.be)(.*?)
 echo "======================================"
 echo " - Compiling the requested app ...    "
@@ -62,6 +63,6 @@ echo " - Log Path: %LogPath%                "
 echo " - Build Version: %FullVersion%       "
 echo "======================================"
 wait 1
-nativefier -v -n -e %ElectronVersion% "%AppTitle%" "%AppUrl%" --tray --bounce --enable-es3-apis --file-download-options "%FileDownloadOptions%" --internal-urls "%InternalUrls%" "%BuildPath%/%AppName%" > "%LogPath%/%LogFile%"
+nativefier -v -n -u %UserAgent% -e %ElectronVersion% "%AppTitle%" "%AppUrl%" --tray --bounce --enable-es3-apis --file-download-options "%FileDownloadOptions%" --internal-urls "%InternalUrls%" "%BuildPath%/%AppName%" > "%LogPath%/%LogFile%"
 endlocal
 pause > Press any key to exit ...
