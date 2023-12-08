@@ -17,12 +17,12 @@ if not "%%L" == "" (
     set "Maintenance=%%K." 
     set "BuildNumber=%%L"
 ) else if not "%%K" == "" ( 
-      set "MajorVersion=%%I." 
-      set "MinorVersion=%%J." 
-      set "BuildNumber=%%K"
+    set "MajorVersion=%%I." 
+    set "MinorVersion=%%J." 
+    set "BuildNumber=%%K"
 ) else if not "%%J" == "" ( 
-        set "MajorVersion=%%I." 
-        set "BuildNumber=%%J"
+    set "MajorVersion=%%I." 
+    set "BuildNumber=%%J"
 ) else set "BuildNumber=%%I" )
 
 if defined BuildNumber for /F "tokens=* delims=0" %%I in ("%BuildNumber%") do set "BuildNumber=%%I" 
