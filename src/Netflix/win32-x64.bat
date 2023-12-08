@@ -43,6 +43,7 @@ set AppName = netflix
 set AppUrl = https://www.netflix.com/
 set InternalUrls = (*.?)(*.netflix.*)(*.?)
 set FileDownloadOptions = {\"saveAs\": true}
+set BuildOptions = --tray --enable-es3-apis --file-download-options %FileDownloadOptions% --internal-urls %InternalUrls% --verbose
 set BuildPath = ../out
 set LogPath = ../logs
 set LogDate = %CurYYYY%%CurMM%%CurDD%
@@ -59,6 +60,6 @@ echo "======================================"
 wait 1
 mkdir %LogPath% && mkdir %BuildPath%
 wait 1
-nativefier --verbose "%AppTitle%" "%AppUrl%" --tray --enable-es3-apis --internal-urls "%InternalUrls%" --build-version "%FullVersion%" --file-download-options "%FileDownloadOptions%" "%BuildPath%/%AppName%" > "%LogPath%/%LogFile%"
+nativefier "%AppTitle%" "%AppUrl%" %BuildOptions% "%BuildPath%/%AppName%" > "%LogPath%/%LogFile%"
 endlocal
 pause > Press any key to exit ...
