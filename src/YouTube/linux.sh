@@ -51,10 +51,10 @@ mkdir %LogPath%
 mkdir %BuildPath%
 wait 1
 
-set AppName = Netflix
-set AppTitle = netflix
-set AppUrl = https://www.netflix.com/
-set InternalUrls = (*.?)(*.netflix.*)(*.?)
+set AppName = YouTube
+set AppTitle = youtube
+set AppUrl = https://www.youtube.com/
+set InternalUrls = (.*?)(*.youtube.*|*.google.*|youtu.be)(.*?)
 
 echo "======================================"
 echo " - Compiling the requested app ...    "
