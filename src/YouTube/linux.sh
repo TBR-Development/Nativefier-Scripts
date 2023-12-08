@@ -64,6 +64,6 @@ echo " - Log Path: %LogPath%                "
 echo " - Build Version: %FullVersion%       "
 echo "======================================"
 wait 1
-nativefier -v -n -u %UserAgent% -e %ElectronVersion% "%AppTitle%" "%AppUrl%" --tray --bounce --enable-es3-apis --file-download-options "%FileDownloadOptions%" --internal-urls "%InternalUrls%" "%BuildPath%/%AppName%" > "%LogPath%/%LogFile%"
+nativefier -v -n -u %UserAgent% -e %ElectronVersion% "%AppTitle%" "%AppUrl%" --tray --enable-es3-apis --file-download-options "%FileDownloadOptions%" --internal-urls "%InternalUrls%" "%BuildPath%/%AppName%" > "%LogPath%/%LogFile%"
 endlocal
 pause > Press any key to exit ...
