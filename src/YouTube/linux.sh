@@ -34,9 +34,9 @@ set "BuildNumber=000%BuildNumber%"
 set "BuildNumber=%BuildNumber:~-4%" 
 set "FullVersion=%MajorVersion%%MinorVersion%%Maintenance%%BuildNumber%" 
 
-CurYYYY=%date:~10,4%
-CurMM=%date:~4,2%
-CurDD=%date:~7,2%
+set CurYYYY=%date:~10,4%
+set CurMM=%date:~4,2%
+set CurDD=%date:~7,2%
 
 if %CurHH% lss 10 ( CurHH=0%time:~1,1% )
 
