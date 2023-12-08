@@ -1,5 +1,7 @@
 @echo off
 
+mkdir %LogPath% && mkdir %BuildPath%
+wait 1
 setlocal EnableExtensions DisableDelayedExpansion 
 set "FullVersion=%~1" 
 
@@ -44,8 +46,8 @@ set AppUrl = https://www.netflix.com/
 set InternalUrls = (*.?)(*.netflix.*)(*.?)
 set FileDownloadOptions = {\"saveAs\": true}
 set BuildPath = ../out
-set LogDate = %CurYYYY%%CurMM%%CurDD%
 set LogPath = ../logs
+set LogDate = %CurYYYY%%CurMM%%CurDD%
 set LogFile = %AppTitle%%LogDate%.log
 echo "======================================"
 echo " - Compiling the requested app ...    "
@@ -56,8 +58,6 @@ echo " - Build Path: %BuildPath%            "
 echo " - Log File: %LogPath%                "
 echo " - Build Version: %FullVersion%       "
 echo "======================================"
-wait 1
-mkdir %LogPath% && mkdir %BuildPath%
 wait 1
 nativefier --verbose "%AppTitle%" "%AppUrl%" --tray --enable-es3-apis --internal-urls "%InternalUrls%" --build-version "%FullVersion%" --file-download-options "%FileDownloadOptions%" "%BuildPath%/%AppName%" > "%LogPath%/%LogFile%"
 endlocal
