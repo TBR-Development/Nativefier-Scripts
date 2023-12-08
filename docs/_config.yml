@@ -21,7 +21,9 @@ gh_edit_view_mode              : "tree"
 back_to_top                    : true
 back_to_top_text               : "Back to top"  
 header_pages                   :
-  - index.mm
+  - index.md
+  - scripts.md
+  - contributors.md
   - 404.md
 plugins                        :
   - jekyll-seo-tag
